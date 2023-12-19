@@ -1,0 +1,8 @@
+{
+  "namespace": "play",
+
+  "play_screen@common.base_screen": {
+	"$safezone_screen_matrix_layer": 20,
+	"$screen_bg_content": "common.play_screen"
+}
+}
