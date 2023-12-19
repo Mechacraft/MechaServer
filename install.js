@@ -10,7 +10,7 @@ function head(url) {
     return new Promise((resolve, reject) => {
         const req = https.request(url, { method: 'HEAD', timeout: 1000 }, resolve)
         req.on('error', reject)
-        req.on('timeout', () => { req.destroy(); debug('HEAD request timeout'); reject(new Error('timeout')) })
+        req.on('timeout', () => { req.destroy(); console.log('HEAD request timeout'); reject(new Error('timeout')) })
         req.end()
     })
 }
