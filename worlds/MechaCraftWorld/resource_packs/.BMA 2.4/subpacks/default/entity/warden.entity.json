@@ -1,0 +1,103 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:warden",
+			"min_engine_version": "1.18.0",
+			"materials": {
+				"default": "warden",
+				"bioluminescent_layer": "warden_bioluminescent_layer"
+			},
+			"textures": {
+				"default": "textures/entity/warden/warden",
+				"bioluminescent_layer": "textures/entity/warden/warden_bioluminescent_layer",
+				"spots_1": "textures/entity/warden/warden_pulsating_spots_1",
+				"spots_2": "textures/entity/warden/warden_pulsating_spots_2",
+				"tendrils": "textures/entity/warden/warden_tendrils",
+				"heart": "textures/entity/warden/warden_heart"
+			},
+			"geometry": {
+				"default": "geometry.warden"
+			},
+			"animations": {
+				"look_at_target": "animation.warden.look_at_target.default",
+				"emerge": "animation.warden.emerge",
+				"dig": "animation.warden.dig",
+				"idle": "animation.warden.idle",
+				"walk": "animation.warden.walk",
+				"jog": "animation.warden.jog",
+				"run": "animation.warden.run",
+				"swimming": "animation.humanoid.swimming.v1.0",
+				"sniffing": "animation.warden.sniffing",
+				"shiver": "animation.warden.shiver",
+				"roaring": "animation.warden.roaring",
+				"melee_attack": "animation.warden.attack",
+				"sonic_boom_attack": "animation.warden.sonic_boom_attack",
+				"general": "controller.animation.warden.general",
+				"shiver_controller": "controller.animation.warden.shiver",
+				"melee_attack_controller": "controller.animation.warden.melee_attacking"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.animation_speed = Math.min(0.5, 3.0 * query.modified_move_speed);",
+					"variable.anim_pos_mod = 49.388962;",
+					"variable.bob = query.life_time * 20;",
+					"variable.modified_bob = variable.bob * 0.1 * 57.2958;",
+					"variable.modified_bob_sin = math.sin(variable.modified_bob);",
+					"variable.modified_bob_cos = math.cos(variable.modified_bob);",
+					"variable.pi = 180;",
+					"variable.halfpi = variable.pi / 2.0;",
+					"variable.tendril_animation_length = 0.5;",
+					"variable.vibration_phase = query.time_since_last_vibration_detection;",
+					"variable.tendril_animation = variable.vibration_phase < 0.0 ? 0.0 : 1.0 - (math.min(query.time_since_last_vibration_detection, variable.tendril_animation_length) / variable.tendril_animation_length);",
+					"variable.left_tendril_x_rot = variable.tendril_animation * (math.cos(variable.bob * 128.9155) * variable.pi * 0.1);",
+					"variable.right_tendril_x_rot = variable.left_tendril_x_rot * -1;",
+					"variable.spots_1_alpha = 0.25 * math.cos(variable.bob * 2.578);",
+					"variable.spots_2_alpha = 0.25 * math.cos(variable.bob * 2.578 + 180.0);",
+					"variable.tendrils_alpha = variable.tendril_animation;",
+					"variable.heart_alpha = 0.8 * (1.0 - query.heartbeat_phase);"
+				],
+				"animate": [
+					"general",
+					"shiver_controller",
+					"melee_attack_controller",
+					{
+						"emerge": "query.is_emerging"
+					},
+					{
+						"dig": "query.is_digging"
+					},
+					{
+						"look_at_target": "!(query.is_emerging||query.is_digging)"
+					},
+					{
+						"swimming": "query.swim_amount>0"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.warden",
+				"controller.render.warden_bioluminescent_layer",
+				"controller.render.warden_spots_1",
+				"controller.render.warden_spots_2",
+				"controller.render.warden_tendrils",
+				"controller.render.warden_heart"
+			],
+			"enable_attachables": true,
+			"spawn_egg": {
+				"base_color": "#0F4649",
+				"overlay_color": "#39D6E0"
+			},
+			"sound_effects": {
+				"emerge": "mob.warden.emerge",
+				"sniff": "mob.warden.sniff",
+				"dig": "mob.warden.dig",
+				"roar": "mob.warden.roar",
+				"clicking": "mob.warden.clicking"
+			},
+			"particle_effects": {
+				"digging": "minecraft:warden_dig"
+			}
+		}
+	}
+}

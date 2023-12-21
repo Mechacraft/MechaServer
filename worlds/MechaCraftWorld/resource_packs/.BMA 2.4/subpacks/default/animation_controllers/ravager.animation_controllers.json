@@ -1,0 +1,100 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ravager.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "query.ground_speed>0.2"
+						},
+						{
+							"stunned": "query.is_stunned"
+						},
+						{
+							"roaring": "query.is_roaring"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						{
+							"walk": "query.modified_move_speed*2"
+						}
+					],
+					"transitions": [
+						{
+							"default": "query.ground_speed<0.2"
+						},
+						{
+							"stunned": "query.is_stunned"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"stunned": {
+					"animations": [
+						"stunned"
+					],
+					"particle_effects": [
+						{
+							"effect": "stun_particles",
+							"locator": "stun"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!query.is_stunned"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"roaring": {
+					"animations": [
+						"roar"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_roaring"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.ravager.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"idle_mouth"
+					],
+					"transitions": [
+						{
+							"biting": "query.is_delayed_attacking==1"
+						}
+					]
+				},
+				"biting": {
+					"animations": [
+						"bite"
+					],
+					"transitions": [
+						{
+							"default": "query.is_delayed_attacking==0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

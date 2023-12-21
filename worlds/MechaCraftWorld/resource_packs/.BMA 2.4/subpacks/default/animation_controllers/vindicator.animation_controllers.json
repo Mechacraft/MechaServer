@@ -1,0 +1,113 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.vindicator.general": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "query.ground_speed>0.3"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"walking": {
+					"animations": [
+						"vindicator_walk"
+					],
+					"transitions": [
+						{
+							"default": "query.ground_speed<0.3"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.vindicator.base": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"celebrating": "query.is_celebrating"
+						},
+						{
+							"hand_attack": "!query.is_item_equipped&&variable.has_target&&variable.attack_time>=0"
+						},
+						{
+							"melee_attack": "query.is_item_equipped&&variable.has_target&&variable.attack_time>=0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"hand_attack": {
+					"animations": [
+						"vindicator_hand_attack"
+					],
+					"transitions": [
+						{
+							"default": "query.is_item_equipped||!variable.has_target||variable.attack_time<0||query.is_celebrating"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"melee_attack": {
+					"animations": [
+						"vindicator_attack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_item_equipped||!variable.has_target||variable.attack_time<0||query.is_celebrating"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"celebrating": {
+					"animations": [
+						"celebrating"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_celebrating"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.vindicator.death": {
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target",
+						"blink"
+					],
+					"transitions": [
+						{
+							"death": "!query.is_alive"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"death": {
+					"animations": [
+						"death"
+					],
+					"transitions": [
+						{
+							"default": "query.is_alive"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		}
+	}
+}

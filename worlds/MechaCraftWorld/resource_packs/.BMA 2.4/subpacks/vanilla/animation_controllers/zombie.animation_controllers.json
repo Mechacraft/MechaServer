@@ -1,0 +1,125 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.zombie.general": {
+			"states": {
+				"default": {
+					"animations": [
+						{"idle1": "v.idle_anim == 1"},
+						{"idle2": "v.idle_anim == 2"}
+					],
+					"on_entry": ["v.idle_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"walking": "query.ground_speed > 0.2"}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						{"walk": "q.modified_move_speed * 2 && !q.is_baby && !q.is_riding"},
+						{"walk": "q.is_baby && !q.is_riding"}
+					],
+					"transitions": [
+						{"default": "query.ground_speed < 0.2"}
+					],
+					"blend_transition": 0.6,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.zombie.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"damaged": "variable.damage_nearby_mobs"}
+					],
+					"blend_transition": 0.2
+				},
+				"damaged": {
+					"animations": ["damage"],
+					"transitions": [
+						{"default": "!v.damage_nearby_mobs"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.zombie.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attacking": "v.attack"}
+					],
+					"blend_transition": 0.2
+				},
+				"attacking": {
+					"animations": [
+						{"attack1": "v.attack_anim == 1"},
+						{"attack2": "v.attack_anim == 2"},
+						{"attack3": "v.attack_anim == 3"}
+					],
+					"on_entry": ["variable.attack_anim = math.random_integer(1, 3);"],
+					"transitions": [
+						{"default": "!v.attack && query.any_animation_finished"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.zombie.death": {
+			"initial_state": "death",
+			"states": {
+				"default": {
+					"transitions": [
+						{"death": "!q.is_alive"}
+					]
+				},
+				"death": {
+					"animations": [
+						"death_rot",
+						{"death1": "v.death_anim == 1"},
+						{"death2": "v.death_anim == 2"}
+					],
+					"on_entry": ["v.death_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.zombie.ride": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"riding": "q.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"riding": {
+					"animations": ["riding"],
+					"transitions": [
+						{"default": "!q.is_riding"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.zombie.charge": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"charging": "v.is_brandishing_spear"}
+					],
+					"blend_transition": 0.1
+				},
+				"charging": {
+					"animations": ["charging"],
+					"transitions": [
+						{"default": "!v.is_brandishing_spear && q.any_animation_finished\n"}
+					]
+				}
+			}
+		}
+	}
+}

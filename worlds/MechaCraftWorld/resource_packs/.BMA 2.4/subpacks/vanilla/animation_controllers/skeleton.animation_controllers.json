@@ -1,0 +1,80 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.skeleton.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack": "query.has_target && !query.facing_target_to_range_attack"}
+					]
+				},
+				"attack": {
+					"animations": ["skeleton_attack"],
+					"transitions": [
+						{"default": "!query.has_target || query.facing_target_to_range_attack"}
+					]
+				}
+			}
+		},
+		"controller.animation.skeleton.shoot": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"charging": "q.has_target && q.facing_target_to_range_attack"}
+					],
+					"blend_transition": 0.2
+				},
+				"charging": {
+					"animations": ["draw"],
+					"transitions": [
+						{"default": "(!q.has_target && !q.facing_target_to_range_attack) || (!q.ground_speed && q.any_animation_finished)"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.skeleton.general": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle",
+						{"arms_idle": "(!q.has_target && !q.facing_target_to_range_attack) || (!q.ground_speed && q.any_animation_finished)"}
+					],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"}
+					],
+					"blend_transition": 0.3
+				},
+				"walking": {
+					"animations": [
+						"walk",
+						{"arms_walk": "!q.facing_target_to_range_attack"}
+					],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.skeleton.death": {
+			"states": {
+				"default": {
+					"animations": [
+						{"look_at_target": "!q.facing_target_to_range_attack"}
+					],
+					"transitions": [
+						{"death": "!q.is_alive"}
+					]
+				},
+				"death": {
+					"animations": ["death_rot", "death"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					]
+				}
+			}
+		}
+	}
+}

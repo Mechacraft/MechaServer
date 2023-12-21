@@ -1,0 +1,50 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.creeper.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.2"}
+					],
+					"blend_transition": 0.1
+				},
+				"walking": {
+					"animations": [
+						{"walk": "q.modified_move_speed * 2 && !q.has_target"},
+						{"walk": "q.modified_move_speed && q.has_target"}
+					],
+					"transitions": [
+						{"default": "q.ground_speed < 0.2"}
+					],
+					"blend_transition": 0.5
+				}
+			}
+		},
+		"controller.animation.creeper.swelling": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["creeper_swelling"]
+				}
+			}
+		},
+		"controller.animation.creeper.death": {
+			"states": {
+				"default": {
+					"animations": ["general", "swell", "blink", "look_at_target"],
+					"transitions": [
+						{"death": "!q.is_alive"}
+					]
+				},
+				"death": {
+					"animations": ["death_rot", "death"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					]
+				}
+			}
+		}
+	}
+}

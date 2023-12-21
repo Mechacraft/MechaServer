@@ -1,0 +1,16 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "better_on_bedrock:bone_ash"
+        },
+        "tags": [
+            "campfire",
+            "soul_campfire"
+        ],
+        "input": {
+            "item": "better_on_bedrock:decayed_bone"
+        },
+        "output": "better_on_bedrock:bone_dust"
+    }
+}

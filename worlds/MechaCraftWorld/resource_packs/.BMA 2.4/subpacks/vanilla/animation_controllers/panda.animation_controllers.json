@@ -1,0 +1,96 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.panda.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"running": "q.ground_speed > 2"},
+						{"lying": "q.lie_amount > 0"},
+						{"sitting": "q.sit_amount > 0"},
+						{"rolling": "q.roll_counter > 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3\n"},
+						{"running": "q.ground_speed > 2"},
+						{"lying": "query.lie_amount > 0"},
+						{"sitting": "q.sit_amount > 0"},
+						{"rolling": "q.roll_counter > 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"walking": "q.ground_speed < 1"},
+						{"lying": "query.lie_amount > 0"},
+						{"sitting": "q.sit_amount > 0"},
+						{"rolling": "q.roll_counter > 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"sitting": {
+					"animations": ["sitting"],
+					"transitions": [
+						{"default": "q.sit_amount <= 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"lying": {
+					"animations": ["lying"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3 && q.lie_amount <= 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"rolling": {
+					"animations": ["rolling"],
+					"transitions": [
+						{"default": "q.roll_counter <= 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.panda.death": {
+			"states": {
+				"default": {
+					"animations": [
+						{"sneezing": "q.sneeze_counter > 0"},
+						{"unhappy": "q.unhappy_counter > 0"},
+						{"eat": "q.is_eating"},
+						"look_at_target",
+						"blink",
+						"general"
+					],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death_rot", "death"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

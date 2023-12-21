@@ -1,0 +1,58 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:enderman",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "enderman",
+				"invisible": "enderman_invisible"
+			},
+			"textures": {
+				"default": "textures/entity/enderman/enderman"
+			},
+			"geometry": {
+				"default": "geometry.enderman.v1.8"
+			},
+			"animations": {
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"carrying": "animation.enderman.carrying",
+				"walking": "animation.enderman.walking",
+				"running": "animation.enderman.running",
+				"running_not_holding": "animation.enderman.running_not_holding",
+				"walking_not_holding": "animation.enderman.walking_not_holding",
+				"angry": "animation.enderman.angry",
+				"bob": "animation.humanoid.bob",
+				"death": "animation.enderman.death",
+				"blink": "animation.enderman.blink",
+				"general": "controller.animation.enderman.general",
+				"angry_controller": "controller.animation.enderman.angry",
+				"attack.rotations": "animation.humanoid.attack.rotations"
+			},
+			"scripts": {
+				"animate": [
+					"look_at_target_default",
+					"angry_controller",
+					"general",
+					"attack.rotations",
+					{
+						"death": "!query.is_alive"
+					},
+					{
+						"blink": "query.is_alive"
+					},
+					{
+						"carrying": "query.is_carrying_block"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.enderman"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 7
+			}
+		}
+	}
+}

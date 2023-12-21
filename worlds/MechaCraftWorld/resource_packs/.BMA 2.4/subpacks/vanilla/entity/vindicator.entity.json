@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:vindicator",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "vindicator"
+			},
+			"textures": {
+				"default": "textures/entity/vindicator"
+			},
+			"geometry": {
+				"default": "geometry.vindicator.bma2"
+			},
+			"animations": {
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"blink": "animation.vindicator.blink",
+				"idle": "animation.vindicator.idle",
+				"hide_axe": "animation.vindicator.hide_axe",
+				"walk": "animation.vindicator.walk",
+				"attack": "animation.vindicator.attack",
+				"celebrate": "animation.vindicator.celebrate",
+				"death": "animation.vindicator.death",
+				"death_rot": "animation.villager.death_rot",
+				"controller_look_at_target": "controller.animation.humanoid.look_at_target",
+				"axe_visibility": "controller.animation.vindicator.axe_visibility",
+				"attack_cont": "controller.animation.vindicator.attack",
+				"general": "controller.animation.vindicator.general",
+				"death_cont": "controller.animation.vindicator.death"
+			},
+			"scripts": {
+				"scale": "0.9375",
+				"animate": [
+					"death_cont",
+					"axe_visibility"
+				]
+			},
+			"render_controllers": [
+				"controller.render.vindicator"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 39
+			},
+			"enable_attachables": true,
+			"hide_armor": true
+		}
+	}
+}

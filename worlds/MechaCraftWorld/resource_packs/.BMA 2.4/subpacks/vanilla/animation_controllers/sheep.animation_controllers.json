@@ -1,0 +1,73 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.sheep.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"running": "q.ground_speed > 3.5"},
+						{"grazing": "q.is_grazing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						{"walk": "!q.is_sheared"},
+						{"walk_sheared": "q.is_sheared"}
+					],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3\n"},
+						{"running": "q.ground_speed > 3.5"},
+						{"grazing": "q.is_grazing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": [
+						{"run": "!q.is_sheared"},
+						{"run_sheared": "q.is_sheared"}
+					],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"walking": "q.ground_speed < 2"},
+						{"grazing": "q.is_grazing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"grazing": {
+					"animations": ["graze"],
+					"transitions": [
+						{"default": "!q.is_grazing && q.all_animations_finished"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.sheep.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive\n"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

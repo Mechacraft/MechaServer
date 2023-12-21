@@ -1,0 +1,92 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:zombie_villager_v2",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "zombie_villager_v2",
+        "masked": "zombie_villager_v2_masked"
+      },
+      "textures": {
+        "default": "textures/entity/zombie_villager2/zombie-villager",
+
+        // Biome Layer
+        "desert": "textures/entity/zombie_villager2/biomes/biome-desert-zombie",
+        "jungle": "textures/entity/zombie_villager2/biomes/biome-jungle-zombie",
+        "plains": "textures/entity/zombie_villager2/biomes/biome-plains-zombie",
+        "savanna": "textures/entity/zombie_villager2/biomes/biome-savanna-zombie",
+        "snow": "textures/entity/zombie_villager2/biomes/biome-snow-zombie",
+        "swamp": "textures/entity/zombie_villager2/biomes/biome-swamp-zombie",
+        "taiga": "textures/entity/zombie_villager2/biomes/biome-taiga-zombie",
+
+        // Profession Layer
+        "armorer": "textures/entity/zombie_villager2/professions/armorer",
+        "butcher": "textures/entity/zombie_villager2/professions/butcher",
+        "cartographer": "textures/entity/zombie_villager2/professions/cartographer",
+        "cleric": "textures/entity/zombie_villager2/professions/cleric",
+        "farmer": "textures/entity/zombie_villager2/professions/farmer",
+        "fisherman": "textures/entity/zombie_villager2/professions/fisherman",
+        "fletcher": "textures/entity/zombie_villager2/professions/fletcher",
+        "leatherworker": "textures/entity/zombie_villager2/professions/leatherworker",
+        "librarian": "textures/entity/zombie_villager2/professions/librarian",
+        "shepherd": "textures/entity/zombie_villager2/professions/shepherd",
+        "tool_smith": "textures/entity/zombie_villager2/professions/toolsmith",
+        "weapon_smith": "textures/entity/zombie_villager2/professions/weaponsmith",
+        "stonemason": "textures/entity/zombie_villager2/professions/stonemason",
+        "nitwit": "textures/entity/zombie_villager2/professions/nitwit"
+      },
+      "geometry": {
+        "default": "geometry.zombie.villager_v2.bma2"
+      },
+      "animations": {
+        "baby_transform": "animation.zombie.baby_transform",
+        "idle1": "animation.zombie.idle1",
+        "idle2": "animation.zombie.idle2",
+        "walk": "animation.zombie.walk",
+        "run": "animation.zombie.run",
+        "riding": "animation.zombie.riding",
+        "attack1": "animation.zombie.attack1",
+        "attack2": "animation.zombie.attack2",
+        "attack3": "animation.zombie.attack3",
+        "damage": "animation.zombie.damage",
+        "death_rot": "animation.zombie.death_rot",
+        "death1": "animation.zombie.death1",
+        "death2": "animation.zombie.death2",
+        "general": "controller.animation.zombie.general",
+        "attack_controller": "controller.animation.zombie.attack",
+        "damage_controller": "controller.animation.zombie.damage",
+        "ride": "controller.animation.zombie.ride",
+        "death": "controller.animation.zombie.death"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.num_professions = 14;",
+          "variable.profession_index = ((query.variant < variable.num_professions) ? query.variant : 0);",
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "v.attack = math.sin(v.attack_time * 25);",
+          "v.damage_nearby_mobs = v.damage_nearby_mobs;"
+        ],
+        "animate": [
+          { "general": "q.is_alive" },
+          { "attack_controller": "q.is_alive" },
+          {
+            "baby_transform": "q.is_baby"
+          },
+          "ride",
+          "damage_controller",
+          "death"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.zombie_villager_v2_base",
+        "controller.render.zombie_villager_v2_masked"
+      ],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 42
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:wolf",
+			"materials": {
+				"normal": "entity_alphatest",
+				"tamed": "wolf"
+			},
+			"textures": {
+				"default": "textures/entity/wolf/wolf",
+				"angry": "textures/entity/wolf/wolf_angry",
+				"tame": "textures/entity/wolf/wolf_tame"
+			},
+			"geometry": {
+				"default": "geometry.wolf"
+			},
+			"animations": {
+				"walk": "animation.wolf.walk",
+				"idle": "animation.wolf.idle",
+				"run": "animation.wolf.run",
+				"interested": "animation.wolf.interested",
+				"blink": "animation.wolf.blink",
+				"death": "animation.wolf.death",
+				"wolf_baby_scaling": "animation.wolf.baby_scaling",
+				"wolf_look_at": "animation.common.look_at_target",
+				"wolf_angry": "animation.wolf.angry",
+				"wolf_sitting": "animation.wolf.sitting",
+				"wolf_shaking": "animation.wolf.shaking",
+				"general": "controller.animation.wolf.general"
+			},
+			"scripts": {
+				"animate": [
+					"blink",
+					"general",
+					{
+						"wolf_look_at": "query.is_alive"
+					},
+					{
+						"death": "!query.is_alive"
+					},
+					{
+						"wolf_angry": "query.is_angry"
+					},
+					{
+						"wolf_baby_scaling": "query.is_baby"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.wolf"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 4
+			}
+		}
+	}
+}

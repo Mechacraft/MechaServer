@@ -1,0 +1,14 @@
+item.better_on_bedrock:player_corpse_spawn_egg.name=Spawn Player Corpse
+text.death_coords.dimension.overworld=§aSupramundo
+text.death_coords.dimension.nether=§cInferior
+text.death_coords.dimension.end=§dFin
+status.playerDied=§g%1 §rMurio en: §b%2, %3, %4, §r§fen El§e %5
+form.title.question=Estas Segura
+button.yes=Desempolvarlo
+button.no=Mantener Cadaver
+form.body.explain=Estas a punto de convertir tu cadaver en cenizas. SI decides inicinerar tu cadaver, todos los elementos guardado se perderan.
+jar.of.bone.dust=Tarro de polvo de bin
+item.better_on_bedrock:bone_dust=Polvo de bin
+item.better_on_bedrock:decayed_bone=Hueso podrido
+item.spawn_egg.entity.better_on_bedrock:player_corpse.name=Cadaver de jugadir engendrado
+entity.better_on_bedrock:player_corpse.name=Cadaver de jugadir

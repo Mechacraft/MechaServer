@@ -1,0 +1,58 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:pillager",
+			"materials": {
+				"default": "pillager"
+			},
+			"textures": {
+				"default": "textures/entity/pillager"
+			},
+			"geometry": {
+				"default": "geometry.pillager.bma"
+			},
+			"animations": {
+				"idle": "animation.pillager.idle",
+				"walk": "animation.pillager.walk",
+				"walk_not_charged": "animation.pillager.arms_walking",
+				"blink": "animation.pillager.blink",
+				"charge": "animation.pillager.charge",
+				"charge_hold": "animation.pillager.charge_hold",
+				"death": "animation.pillager.death",
+				"celebrating": "animation.humanoid.celebrating",
+				"riding.legs": "animation.pillager.riding.legs",
+				"look_at_target": "animation.common.look_at_target",
+				"attack": "controller.animation.pillager.attack",
+				"general": "controller.animation.pillager.general"
+			},
+			"scripts": {
+				"animate": [
+					"general",
+					"attack",
+					{
+						"blink": "query.is_alive"
+					},
+					{
+						"death": "!query.is_alive"
+					},
+					{
+						"riding.legs": "query.is_riding"
+					},
+					{
+						"celebrating": "query.is_celebrating"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.pillager"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 56
+			},
+			"enable_attachables": true,
+			"hide_armor": true
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:polar_bear",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "polar_bear"
+			},
+			"textures": {
+				"default": "textures/entity/polarbear"
+			},
+			"geometry": {
+				"default": "geometry.polarbear.bma2"
+			},
+			"animations": {
+				"baby_transform": "animation.polarbear.baby_transform",
+				"look_at_target": "animation.common.look_at_target",
+				"blink": "animation.polarbear.blink",
+				"idle": "animation.polarbear.idle",
+				"walk": "animation.polarbear.walk",
+				"run": "animation.polarbear.run",
+				"stomp": "animation.polarbear.stomp",
+				"death": "animation.polarbear.death",
+				"death_rot": "animation.polarbear.death_rot",
+				"attack": "controller.animation.polarbear.attack",
+				"general": "controller.animation.polarbear.general",
+				"death_cont": "controller.animation.polarbear.death"
+			},
+			"scripts": {
+				"scale": "1.2",
+				"pre_animation": [
+					"v.attack = math.sin(v.attack_time * 25);"
+				],
+				"animate": [
+					"death_cont",
+					{
+						"baby_transform": "q.is_baby"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.polarbear"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 37
+			}
+		}
+	}
+}

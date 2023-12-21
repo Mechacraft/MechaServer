@@ -1,0 +1,14 @@
+item.better_on_bedrock:player_corpse_spawn_egg.name=Spawn Player Corpse
+text.death_coords.dimension.overworld=§aOverworld
+text.death_coords.dimension.nether=§cNether
+text.death_coords.dimension.end=§dEnd
+status.playerDied=§g%1 §rdied at: §b%2, %3, %4, §r§fin The§e %5
+form.title.question=Are you sure?
+button.yes=Dust It!
+button.no=Keep Corps
+form.body.explain=You are about to turn your corpse into ashes. If you decide to turn your corpse into ash, all stored items will be lost.
+jar.of.bone.dust=Jar Of Bone Dust
+item.better_on_bedrock:bone_dust=Bone Dust
+item.better_on_bedrock:decayed_bone=Decayed Bone
+item.spawn_egg.entity.better_on_bedrock:player_corpse.name=Spawn Player Corpse
+entity.better_on_bedrock:player_corpse.name=Player Corpse

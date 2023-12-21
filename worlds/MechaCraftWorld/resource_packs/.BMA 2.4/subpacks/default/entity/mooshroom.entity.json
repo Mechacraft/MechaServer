@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:mooshroom",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/cow/mooshroom",
+				"brown": "textures/entity/cow/brown_mooshroom"
+			},
+			"geometry": {
+				"default": "geometry.mooshroom"
+			},
+			"animations": {
+				"walk": "animation.mooshroom.walk",
+				"death": "animation.cow.death",
+				"look_at_target": "animation.common.look_at_target",
+				"baby_transform": "animation.cow.baby_transform",
+				"general": "controller.animation.cow.general"
+			},
+			"scripts": {
+				"animate": [
+					"look_at_target",
+					"general",
+					{
+						"death": "query.health==0"
+					},
+					{
+						"baby_transform": "query.is_baby"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.mooshroom"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 5
+			}
+		}
+	}
+}

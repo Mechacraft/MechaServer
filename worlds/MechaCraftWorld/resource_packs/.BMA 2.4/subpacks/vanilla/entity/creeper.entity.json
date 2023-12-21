@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:creeper",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "creeper",
+        "charged": "charged_creeper"
+      },
+      "textures": {
+        "default": "textures/entity/creeper/creeper",
+        "charged": "textures/entity/creeper/creeper_armor"
+      },
+      "geometry": {
+        "default": "geometry.creeper.bma2",
+        "charged": "geometry.creeper.charged.bma2"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "blink": "animation.creeper.blink",
+        "idle": "animation.creeper.idle",
+        "walk": "animation.creeper.walk",
+        "creeper_swelling": "animation.creeper.swelling",
+        "swell": "controller.animation.creeper.swelling",
+        "death": "animation.creeper.death",
+        "death_rot": "animation.creeper.death_rot",
+        "general": "controller.animation.creeper.general",
+        "death_con": "controller.animation.creeper.death"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.wobble = Math.sin(query.swell_amount * 5730) * query.swell_amount * 0.01 + 1.0;",
+          "variable.swelling_scale1 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.4 + 1.0) * variable.wobble;",
+          "variable.swelling_scale2 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.1 + 1.0) / variable.wobble;",
+          "variable.leg_rot = Math.cos(query.modified_distance_moved * 38.17326) * 80.22 * query.modified_move_speed;",
+          "variable.flash = Math.mod(Math.Round(query.swell_amount * 10.0), 2.0);"
+        ],
+        "animate": [
+          "death_con"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.creeper",
+        "controller.render.creeper_armor"
+      ],
+
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 6
+      }
+    }
+  }
+}

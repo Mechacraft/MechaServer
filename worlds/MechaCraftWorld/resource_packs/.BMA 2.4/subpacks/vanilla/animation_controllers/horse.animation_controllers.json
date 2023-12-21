@@ -1,0 +1,78 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.horse.death": {
+			"states": {
+				"default": {
+					"animations": ["blink", "look_at_player", "general", "rear"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.horse.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"galloping": "q.ground_speed > 4"},
+						{"eating": "q.is_grazing"},
+						{"shrugging": "q.is_standing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"galloping": "q.ground_speed > 4"},
+						{"eating": "q.is_grazing"},
+						{"shrugging": "q.is_standing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"galloping": {
+					"animations": ["gallop"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"walking": "q.ground_speed < 2"},
+						{"eating": "q.is_grazing"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"eating": {
+					"animations": ["eat"],
+					"transitions": [
+						{"default": "!q.is_grazing\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"shrugging": {
+					"animations": ["shrug"],
+					"transitions": [
+						{"default": "!q.is_standing && q.ground_speed < 0.3"},
+						{"walking": "!q.is_standing && q.ground_speed > 0.3"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

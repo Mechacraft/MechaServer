@@ -1,0 +1,69 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.polarbear.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"running": "q.ground_speed > 4 || q.has_target"},
+						{"attacking": "v.attack > 0\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3\n"},
+						{"running": "q.ground_speed > 4 || q.has_target\n"},
+						{"attacking": "v.attack > 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3 && !q.has_target"},
+						{"walking": "q.ground_speed < 2 && !q.has_target"},
+						{"attacking": "v.attack > 0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"attacking": {
+					"animations": ["stomp"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3 && v.attack <= 0 && q.all_animations_finished"},
+						{"walking": "q.ground_speed > 0.3 && v.attack <= 0 && q.all_animations_finished"},
+						{"running": "q.ground_speed > 3 && v.attack <= 0 && q.all_animations_finished"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.polarbear.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

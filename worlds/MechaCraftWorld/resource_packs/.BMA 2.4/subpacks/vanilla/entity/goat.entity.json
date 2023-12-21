@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:goat",
+      "materials": {
+        "default": "goat"
+      },
+      "textures": {
+        "default": "textures/entity/goat/goat"
+      },
+      "geometry": {
+        "default": "geometry.goat.bma2"
+      },
+      "animations": {
+        "look_at_target": "animation.goat.look_at_target",
+        "baby_transform": "animation.goat.baby_scaling",
+        "blink": "animation.goat.blink",
+        "idle": "animation.goat.idle",
+        "walk": "animation.goat.walk",
+        "run": "animation.goat.run",
+        "ram_attack": "animation.goat.ram_attack",
+        "death1": "animation.goat.death1",
+        "death2": "animation.goat.death2",
+        "death_rot": "animation.goat.death_rot",
+        "general": "controller.animation.goat.general",
+        "attack": "controller.animation.goat.attack",
+        "death_cont": "controller.animation.goat.death"
+      },
+      "scripts": {
+        "animate": [
+          "death_cont",
+          {
+            "baby_transform": "q.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.goat"
+      ],
+      "spawn_egg": {
+        "base_color": "#c0ac90",
+        "overlay_color": "#857261"
+      }
+    }
+  }
+}

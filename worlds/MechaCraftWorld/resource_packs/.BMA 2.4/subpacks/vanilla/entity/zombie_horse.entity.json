@@ -1,0 +1,54 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:zombie_horse",
+			"min_engine_version": "1.17.10",
+			"materials": {
+				"default": "horse"
+			},
+			"textures": {
+				"zombie": "textures/entity/horse2/horse_zombie",
+				"markings_none": "textures/entity/horse2/horse_markings_none",
+				"armor_none": "textures/entity/horse2/armor/horse_armor_none"
+			},
+			"geometry": {
+				"default": "geometry.horse.bma2"
+			},
+			"animations": {
+				"baby_transform": "animation.horse.v3.baby_transform",
+				"look_at_player": "animation.horse.v3.look_at_player",
+				"blink": "animation.horse.blink",
+				"idle": "animation.horse.idle",
+				"walk": "animation.horse.walk",
+				"gallop": "animation.horse.gallop",
+				"shrug": "animation.horse.shrug",
+				"eat": "animation.horse.eat",
+				"rear": "animation.horse.v3.rear",
+				"death": "animation.horse.death",
+				"death_rot": "animation.horse.death_rot",
+				"general": "controller.animation.horse.general",
+				"death_cont": "controller.animation.horse.death"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.head_x_rot = query.target_x_rotation + (query.modified_move_speed > 0.2 ? (math.cos(query.modified_distance_moved * 11.46) * 11.46 * query.modified_move_speed + query.modified_move_speed * 11.46) : 0.0);",
+					"variable.inverse_max_stand_eat = (1.0 - math.max(variable.stand_anim, variable.eat_anim));"
+				],
+				"animate": [
+					"death_cont",
+					{
+						"baby_transform": "query.is_baby"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.zombie_horse.v3"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 33
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:cave_spider",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "spider",
+				"invisible": "spider_invisible"
+			},
+			"textures": {
+				"default": "textures/entity/spider/cave_spider"
+			},
+			"geometry": {
+				"default": "geometry.spider"
+			},
+			"animations": {
+				"look_at_target": "animation.spider.look_at_target",
+				"fangs": "animation.spider.fangs",
+				"walking": "animation.spider.walking",
+				"wall_climbing": "animation.spider.wall_climbing",
+				"attack": "animation.spider.attack",
+				"upside_down": "animation.spider.upside_down",
+				"look_at_target_upside_down": "animation.spider.look_at_target_upside_down",
+				"death": "animation.spider.death",
+				"general": "controller.animation.spider.general",
+				"orientation_controller": "controller.animation.spider.orientation_controller"
+			},
+			"scripts": {
+				"scale": "0.7",
+				"animate": [
+					"look_at_target",
+					"general",
+					"orientation_controller",
+					"fangs",
+					{
+						"look_at_target_upside_down": "query.is_wall_climbing&&query.ground_speed>0.2"
+					},
+					{
+						"death": "!query.is_alive"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.spider"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 22
+			}
+		}
+	}
+}

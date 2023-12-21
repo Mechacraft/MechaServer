@@ -1,0 +1,96 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.vindicator.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"celebrate": "q.is_celebrating || q.is_celebrating_special"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.2"},
+						{"celebrate": "q.is_celebrating || q.is_celebrating_special"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"celebrate": {
+					"animations": ["celebrate"],
+					"transitions": [
+						{"default": "!(q.is_celebrating || q.is_celebrating_special)"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.vindicator.axe_visibility": {
+			"states": {
+				"default": {
+					"animations": ["hide_axe"],
+					"transitions": [
+						{"shown": "q.is_angry && q.is_alive"}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"shown": {
+					"transitions": [
+						{"default": "!q.is_angry || !q.is_alive"}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.vindicator.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attacking": "v.attack_time > 0"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"attacking": {
+					"animations": ["attack"],
+					"transitions": [
+						{"default": "v.attack_time <= 0 && q.all_animations_finished\n"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.vindicator.death": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["controller_look_at_target", "blink", "attack_cont", "general"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive\n"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

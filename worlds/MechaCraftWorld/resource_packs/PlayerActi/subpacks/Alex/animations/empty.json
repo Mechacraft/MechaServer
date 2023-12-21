@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kid_orl_pr_female_chest": {
+			"loop": true,
+			"bones": {
+				"female_chest": {
+					"scale": "math.clamp(variable.female_chest, 0, 10)"
+				}
+			}
+		}
+	}
+}

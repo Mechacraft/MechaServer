@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:witch",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "witch"
+      },
+      "textures": {
+        "default": "textures/entity/witch"
+      },
+      "geometry": {
+        "default": "geometry.witch.bma2"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "blink": "animation.villager.blink",
+        "idle": "animation.villager.idle",
+        "walk": "animation.villager.walk",
+        "run": "animation.villager.run",
+        "baby_transform": "animation.villager.baby_transform",
+        "get_in_bed": "animation.villager.get_in_bed",
+        "death_rot": "animation.villager.death_rot",
+        "death": "animation.villager.death",
+        "death_controller": "controller.animation.villager.death",
+        "general": "controller.animation.villager.general"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "animate": [
+          "death_controller",
+          { "general": "q.is_alive" },
+          {
+            "baby_transform": "query.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [ "controller.render.witch" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 17
+      }
+    }
+  }
+}

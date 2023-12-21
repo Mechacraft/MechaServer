@@ -1,0 +1,440 @@
+v1.0.0
+[Villager]
+-hands are now dynamic when walking
+-new panic animation when it's being chased by zombies
+-new eye blinking animation
+
+[Creeper]
+-new body idle animation
+-new eye blinking animation
+-improved walking animation
+
+[Zombie]
+-improved hand animation
+-new realistic walking animation(bugged)
+
+v1.1.0
+[Zombie]
+-improved hand animation
+-new realistic walking animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Baby Zombie]
+-improved hand animation
+-new realistic running animation
+-new realistic idle animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Husk]
+-improved hand animation
+-new realistic walking animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Baby Husk]
+-improved hand animation
+-new realistic running animation
+-new realistic idle animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Drowned]
+-improved hand animation
+-new realistic walking animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Baby Zombie]
+-improved hand animation
+-new realistic running animation
+-new realistic idle animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Husk]
+-improved hand animation
+-new realistic walking animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Baby Husk]
+-improved hand animation
+-new realistic running animation
+-new realistic idle animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+v1.1.4
+[Gameplay]
+-achievements are now available even with this addon enabled
+
+[Cow]
+-new walking animation
+-new idle animation
+-new death animation
+-new running animation
+-new blinking animation
+
+[Mooshroom]
+-new walking animation
+-new idle animation
+-new death animation
+-new running animation
+-new blinking animation
+
+[Chicken]
+-new walking animation
+-new idle animation
+-new blinking animation
+
+[Pig]
+-new walking animation
+-new idle animation
+-new death animation
+-new blinking animation
+
+[Wolf]
+-new walking animation
+-new angry animation
+-new idle animation
+-new shaking animation
+-new excited animation
+-new sitting animation
+-new blinking animation
+
+v1.1.6
+[Squid]
+
+-brand new model
+-new idle animation
+-new swimming animation
+
+[Glow Squid]
+
+-brand new model
+-new idle animation
+-new swimming animation
+
+[Known Issues]
+-Zombie chestplate armor is glitched
+-Mooshroom's mushroom in its head is glitched
+
+v1.2.8
+[Enderman]
+-new walking animation
+-new running animation(when angry)
+
+[Zombie Villager]
+-improved hand animation
+-new realistic walking animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Baby Zombie Villager]
+-improved hand animation
+-new realistic running animation
+-new realistic idle animation
+-new swimming animation
+-new death animation
+-new attack animation
+
+[Miscellanious]
+-new blood effect when mobs are killed
+list of mobs with blood effect
+-villager
+-zombie
+-zombie villager
+-creeper
+-drowned
+-husk
+-cow
+-chicken
+-pig
+-mooshroom
+-wolf
+-enderman
+
+v1.3.2
+-endermen can now blink
+-revamped villager walking animation
+-brand new villager panicking animation
+-new villager idle animation
+-villagers can now put their hands together when they're not walking(like in the vanilla game)
+-polished the cow and mooshroom walking animation
+-polished the pig walk animation
+-polished creeper animation
+-matched the wolf walk animation to real life dogs
+-fixed wolf eyelids not rendering correctly
+-tweaked the death animation of all mobs
+-tweaked enderman walking animation
+-improved enderman running animation
+-new sheep walking animation
+-new sheep death animation
+-added new optional toggle! you can now choose to use the vanilla squid model or the new squid model, both with different animations
+-smoothened all mob animations
+
+v1.4.4
+-fixed villager sleeping animation
+-fixed glitched zombie armor
+-new skeleton idle animation
+-new skeleton walking animation
+-new skeleton riding animation
+-new skeleton bow animation
+-new stray idle animation
+-new stray walking animation
+-new stray riding animation
+-new stray bow animation
+-optimized creeper walking animation
+-optimized creeper death animation
+-improved zombie, husk, drowned, and zombie villager idle animation
+-improved zombie, husk, drowned, and zombie villager walking animation
+-improved baby zombie, baby husk, baby drowned, and baby zombie villager running animation
+-improved zombie, husk, drowned, and zombie villager death animation
+-improved wolf death animation
+-new wolf running animation
+-new wandering trader idle animation
+-new wandering trader walking animation
+-new wandering trader panic animation
+-new wandering trader death animation
+-new spider and cave spider walk animation
+-new animated spider and cave spider fangs
+-spiders and cave spiders will now realistically climb walls
+-spiders and cave spiders will now realistically stick on ceilings
+-new spider and cave spider attack animation
+-new spider and cave spider death animation
+
+v1.6.3
+-fixed zombie death animation
+-fixed enderman floating block animation
+-improved skeleton walking animation
+-new skeleton death animation
+-new iron golem idle animation
+-new iron golem walk animation
+-new iron golem attack animation
+-new iron golem give flower animation
+-new iron golem death animation
+
+v1.6.4
+-fixed crash when going or spawning near a village on some devices with higher render distance
+
+v1.8.4
+-new cat idle animation
+-new cat walking animation
+-new cat sprint animation
+-new cat lie down animation
+-new cat sit animation
+-new cat death animation
+-new cat blinking animation
+-new cat blood effect particles
+-new ocelot idle animation
+-new ocelot walking animation
+-new ocelot sprint animation
+-new ocelot lie down animation
+-new ocelot sit animation
+-new ocelot death animation
+-new ocelot blinking animation
+-new ocelot blood effect particles
+
+v1.9.3
+-removed new squid model (no more subpacks)
+-changed squid minimum engine version to 1.16.0 for the new animations to work
+-changed glow squid minimum engine version to 1.16.0 for the new animations to work
+-changed iron golem minimum engine version to 1.16.0 (previously 1.8.0)
+-changed horse minimum engine version to 1.16.0 (previously 1.17.10) for the new animations to work
+-changed donkey minimum engine version to 1.16.0 (previously 1.17.10) for the new animations to work
+-changed mule minimum engine version to 1.16.0 (previously 1.17.10) for the new animations to work
+-new horse shake tail animation
+-new horse walking animation
+-new horse running animation
+-new horse idle animation
+-new horse realistic tail physics
+-new horse blinking animation
+-new donkey shake tail animation
+-new donkey walking animation
+-new donkey running animation
+-new donkey idle animation
+-new donkey realistic tail physics
+-new donkey blinking animation
+-new mule shake tail animation
+-new mule walking animation
+-new mule running animation
+-new mule idle animation
+-new mule realistic tail physics
+-new mule blinking animation
+-new zombie horse shake tail animation
+-new zombie horse walking animation
+-new zombie horse running animation
+-new zombie horse idle animation
+-new zombie horse realistic tail physics
+-new zombie horse blinking animation
+-new skeleton horse walking animation
+-new skeleton horse running animation
+-new skeleton horse idle animation
+-new skeleton horse realistic tail physics
+-new skeleton horse blinking animation
+
+v2.0.0
+-removed blood effects for all mobs
+-temporarily removed villager animations due to rendering issues
+-new fox blinking animation
+-new fox idle animation
+-new fox walking animation
+-new fox crouching animation
+-new fox pouncing animation (slightly glitched)
+-new fox wiggle animation
+-new fox sitting animation
+-new fox sleeping animation
+-faster cat running animation
+-improved cat walking animation
+-improved cow walking animation
+-improve mooshroom walking animation
+
+v2.1.4
+-fixed villager biome skin rendering issue
+-fixed zombie villager biome skin rendering issue
+-readded villager animations
+-readded zombie villager animations
+-readded wandering trader animations
+-new goat walking animation
+-new goat blinking animation
+-new goat idle animation
+-new goat death animation
+
+v2.1.62
+-new allay blinking animation
+-improved allay flying animation
+-improved allay dancing animation (added back flip!)
+-new sheep blinking animation
+-now supports texture packs(16x for now)
+
+v2.2.15
+-improved warden emerge animation
+-improved warden dig animation
+-improved warden sonic boom animation
+-improved warden roar animation
+-improved warden sniff animation
+-new evoker idle animation
+-new evoker walk animation
+-new evoker blink animation
+-new evoker spell casting animation
+-new evoker death animation
+-new vindicator idle animation
+-new vindicator walk animation
+-new vindicator blink animation
+-new vindicator death animation
+-improved vex animation
+-fixed floating mushroom bug on the mooshroom's head
+-optimized spider animations
+
+v2.3.0
+-new warden idle animation
+-new warden walk animation
+-new warden running animation
+-new warden attack animation
+-new llama idle animation
+-new llama attack animation
+-improved horse animations
+-improved donkey animations
+-improved mule animations
+-fixed horse animation bug
+-fixed donkey animation bug
+-fixed donkey animation bug
+-fixed zombie pivot points
+-fixed husk pivot points
+-fixed drowned pivot points
+-fixed stray rendering issue
+-fixed iron golem textures not cracking
+
+v2.3.5
+-new ravager idle animation
+-new ravager walk animation
+-new ravager blink animation
+-new ravager roar animation
+-new panda ear animation
+-new panda sniff animation
+-new panda walk animation
+-new panda blink animation
+-new polar bear ear animaiton
+-new polar bear sniff animation
+-new polar bear blink animation
+-new polar bear walk animation
+-new polar bear stomp animation
+-new witch idle animation
+-new witch walking animation
+-new witch death animation
+-new pillager idle animation
+-new pillager walk animation
+-new pillager blink animation
+-new pillager crossbow loading animation
+-new pillager shoot animation
+-new pillager death animation
+-fixed and improved warden animation transitions
+-fixed villager blinking animations
+
+v2.4.0
+-new option to select between vanilla style animations (no jointed limbs) and default animations (jointed limbs)
+-changed mob hit color from default (red) to white
+-new vanilla style villager animations
+-new vanilla style wandering trader animations
+-new vanilla style witch animations
+-new vanilla style iron golem animations
+-new vanilla style zombie animations
+-new vanilla style husk animations
+-new vanilla style drowned animations
+-new vanilla style zombie villager animations
+-new vanilla style skeleton animations
+-new vanilla style creeper animations
+-new vanilla style llama animations
+
+v2.4.5
+[Bug Fixes]
+-fixed the skeleton's bow not rendering
+-fixed the stray's bow not rendering
+
+[Animations]
+-new vanilla style stray animations
+-new vanilla style cat animations
+-new vanilla style ocelot animations
+-new vanilla style wolf animations
+-new vanilla style chicken animations
+-new vanilla style spider animations
+-new vanilla style cave spider animations
+-new vanilla style cow animations
+-new vanilla style mooshroom animations
+-new vanilla style horse animations
+-new vanilla style skeleton horse animations
+-new vanilla style zombie horse animations
+-new vanilla style donkey animations
+-new vanilla style mule animations
+-new vanilla style enderman animations
+-new vanilla style evoker animations
+-new vanilla style fox animations
+-new vanilla style squid animations 
+-new vanilla style glow squid animations
+-new vanilla style goat animations
+-new vanilla style llama animations
+-new vanilla style panda animations
+-new vanilla style pig animations
+-new vanilla style ravager animations
+-new vanilla style sheep animations
+-new vanilla style vex animations
+-new vanilla style vindicator animations
+
+[Miscellaneous]
+-changed hit color for the allay from red to white
+
+===================================================================================================================
+[Copyright] [Raboy13] [2023]
+Author: Raboy13
+Youtube: https://youtube.com/c/Raboy13

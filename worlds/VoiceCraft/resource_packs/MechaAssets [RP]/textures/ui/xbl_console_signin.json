@@ -1,7 +1,0 @@
-{
-  "namespace": "xbl_console_signin",
-
-  "xbl_console_signin@common.base_screen": {
-    "$screen_bg_content": "common.setwarp_screen"
-}
-}

@@ -1,0 +1,56 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:panda",
+      "materials": {
+        "default": "panda"
+      },
+      "textures": {
+        "default": "textures/entity/panda/panda",
+        "lazy": "textures/entity/panda/panda_lazy",
+        "worried": "textures/entity/panda/panda_worried",
+        "playful": "textures/entity/panda/panda_playful",
+        "brown": "textures/entity/panda/panda_brown",
+        "weak": "textures/entity/panda/panda_sneezy",
+        "aggressive": "textures/entity/panda/panda_aggressive"
+      },
+      "geometry": {
+        "default": "geometry.panda.bma2"
+      },
+      "animations": {
+        "baby_transform": "animation.panda.baby_transform",
+        "look_at_target": "animation.common.look_at_target",
+        "blink": "animation.panda.blink",
+        "idle": "animation.panda.idle",
+        "walk": "animation.panda.walk",
+        "run": "animation.panda.run",
+        "sitting": "animation.panda.sitting",
+        "lying": "animation.panda.lying",
+        "rolling": "animation.panda.rolling",
+        "eat": "animation.panda.eat",
+        "sneezing": "animation.panda.sneezing",
+        "unhappy": "animation.panda.unhappy",
+        "death": "animation.panda.death",
+        "death_rot": "animation.panda.death_rot",
+        "general": "controller.animation.panda.general",
+        "death_cont": "controller.animation.panda.death"
+      },
+      "scripts": {
+        "animate": [
+          "death_cont",
+          {
+            "baby_transform": "q.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.panda"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 54
+      }
+    }
+  }
+}

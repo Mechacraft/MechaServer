@@ -1,0 +1,65 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:drowned",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "drowned"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/drowned"
+      },
+      "geometry": {
+        "default": "geometry.drowned.bma2"
+      },
+      "animations": {
+        "baby_transform": "animation.zombie.baby_transform",
+        "idle1": "animation.zombie.idle1",
+        "idle2": "animation.zombie.idle2",
+        "walk": "animation.zombie.walk",
+        "run": "animation.zombie.run",
+        "riding": "animation.zombie.riding",
+        "charging": "animation.zombie.charging",
+        "attack1": "animation.zombie.attack1",
+        "attack2": "animation.zombie.attack2",
+        "attack3": "animation.zombie.attack3",
+        "damage": "animation.zombie.damage",
+        "death_rot": "animation.zombie.death_rot",
+        "death1": "animation.zombie.death1",
+        "death2": "animation.zombie.death2",
+        "general": "controller.animation.zombie.general",
+        "charge": "controller.animation.zombie.charge",
+        "attack_controller": "controller.animation.zombie.attack",
+        "damage_controller": "controller.animation.zombie.damage",
+        "ride": "controller.animation.zombie.ride",
+        "death": "controller.animation.zombie.death"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.attack = math.sin(v.attack_time * 25);",
+          "v.damage_nearby_mobs = v.damage_nearby_mobs;"
+        ],
+        "animate": [
+          { "general": "q.is_alive" },
+          { "attack_controller": "q.is_alive" },
+          {
+            "baby_transform": "q.is_baby"
+          },
+          "ride",
+          "charge",
+          "damage_controller",
+          "death"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.drowned"
+      ],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 48
+      }
+    }
+  }
+}

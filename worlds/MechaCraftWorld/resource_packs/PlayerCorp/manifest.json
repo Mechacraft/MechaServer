@@ -1,0 +1,17 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Player Corpse v.1.1.4",
+		"description": "Made by @XxPoggyisLitxX.",
+		"uuid": "cb52e7bf-712b-41d7-8408-b3c8e769a2ce",
+		"version": [ 1, 1, 4 ],
+		"min_engine_version": [ 1, 20, 50 ]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "efc0fde6-d94b-4da4-ac2a-f791a048dedf",
+			"version": [ 1, 0, 0 ]
+		}
+	]
+}

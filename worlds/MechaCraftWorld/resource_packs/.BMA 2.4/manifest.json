@@ -1,0 +1,49 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "§2Better §4Mob §6Animations",
+		"description": "§2Better Mob Animations §3v2.4.5 §fby Raboy13 \n§627 §rNew Vanilla Style Animations!\nNew option to select between vanilla style animations (no jointed limbs) and default animations (jointed limbs) + §5Bug fixes and improvements!§f\nNow supports texture packs (16x only for now) \n§4[Youtube: §6Raboy13 §7||§9SUBSCRIBE]",
+		"uuid": "d3c62154-bb75-4828-89e9-36183acacf9c",
+		"version": [
+			2,
+			4,
+			5
+		],
+		"min_engine_version": [
+			1,
+			18,
+			0
+		]
+	},
+	"modules": [
+		{
+			"description": "pack.name",
+			"type": "resources",
+			"uuid": "8d5df6c9-84a7-4a18-9e09-ec2d61cc7624",
+			"version": [
+				2,
+				4,
+				5
+			]
+		}
+	],
+	"subpacks": [
+		{
+			"name": "Default (Jointed limbs)",
+			"memory_tier": 0,
+			"folder_name": "default"
+		},
+		{
+			"name": "Vanilla Style (No jointed limbs)",
+			"memory_tier": 1,
+			"folder_name": "vanilla"
+		}
+	],
+	"metadata": {
+		"authors": [
+			"Raboy13"
+		],
+		"url": "https://mcpedl.com/better-mob-animations-addon/"
+		
+	}
+}

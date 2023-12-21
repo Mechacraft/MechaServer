@@ -1,0 +1,78 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.iron_golem.general": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle",
+						{"flower": "variable.offer_flower_tick"}
+					],
+					"transitions": [
+						{"walking": "query.ground_speed>0.2"},
+						{"has_target": "query.has_target"},
+						{"attack": "variable.attack_animation_tick > 0.0"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						{"walk": "q.modified_move_speed * 2"}
+					],
+					"transitions": [
+						{"default": "query.ground_speed<0.2"},
+						{"has_target": "query.has_target"},
+						{"attack": "variable.attack_animation_tick > 0.0"}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				},
+				"has_target": {
+					"animations": [
+						{"has_target": "query.modified_move_speed"}
+					],
+					"transitions": [
+						{"attack": "variable.attack_animation_tick > 0.0"},
+						{"default": "query.ground_speed<0.2&&!query.has_target"},
+						{"walking": "query.ground_speed>0.2&&!query.has_target"}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"attack": {
+					"animations": ["attack"],
+					"transitions": [
+						{"default": "!q.has_target && v.attack_animation_tick <= 0.0"},
+						{"has_target": "q.has_target && v.attack_animation_tick <= 0.0"},
+						{"walking": "q.ground_speed>0.2 && v.attack_animation_tick <= 0.0 && q.any_animation_finished"}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.iron_golem.death_controller": {
+			"states": {
+				"default": {
+					"animations": [
+						{"look_at_target": "!q.has_target"}
+					],
+					"transitions": [
+						{"death": "!q.is_alive"}
+					]
+				},
+				"death": {
+					"animations": [
+						"death_rot",
+						{"death1": "v.rand_death == 1"},
+						{"death2": "v.rand_death == 2"}
+					],
+					"on_entry": ["v.rand_death = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					]
+				}
+			}
+		}
+	}
+}

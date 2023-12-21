@@ -1,0 +1,29 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Player Corpse v.1.1.4",
+		"description": "Made by @XxPoggyisLitxX.",
+		"uuid": "f9cf357d-0aba-439d-b9f5-f8d2c9798d15",
+		"version": [ 1, 1, 4 ],
+		"min_engine_version": [ 1, 20, 50 ]
+	},
+	"modules": [
+		{
+			"language": "javascript",
+			"type": "script",
+			"uuid": "e9c5708d-f22f-4c96-b423-0cf81d559692",
+			"version": [ 1, 0, 0 ],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.1.0"
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.7.0"
+		}
+	]
+}

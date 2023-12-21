@@ -1,0 +1,87 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.evoker.general": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "query.ground_speed>0.3"
+						},
+						{
+							"casting": "query.is_casting"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"default": "query.ground_speed<0.3"
+						},
+						{
+							"casting": "query.is_casting"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"casting": {
+					"animations": [
+						"casting"
+					],
+					"particle_effects": [
+						{
+							"effect": "spell",
+							"locator": "left_hand"
+						},
+						{
+							"effect": "spell",
+							"locator": "right_hand"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!query.is_casting&&query.ground_speed<0.3"
+						},
+						{
+							"walking": "!query.is_casting&&query.ground_speed>0.3"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.evoker.death": {
+			"initial_state": "alive",
+			"states": {
+				"alive": {
+					"animations": [
+						"blink",
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"death": "!query.is_alive"
+						}
+					]
+				},
+				"death": {
+					"animations": [
+						"death"
+					],
+					"transitions": [
+						{
+							"alive": "query.is_alive"
+						}
+					]
+				}
+			}
+		}
+	}
+}

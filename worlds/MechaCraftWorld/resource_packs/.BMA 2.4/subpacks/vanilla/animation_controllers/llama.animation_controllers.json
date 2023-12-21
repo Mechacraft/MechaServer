@@ -1,0 +1,56 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.llama.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"run": "q.ground_speed > 2.5"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"run": "q.ground_speed > 2.5"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"run": {
+					"animations": ["run"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"walking": "q.ground_speed < 1"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.llama.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

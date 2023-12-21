@@ -1,0 +1,58 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:creeper",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "entity_alphatest",
+				"charged": "charged_creeper"
+			},
+			"textures": {
+				"default": "textures/entity/creeper/creeper",
+				"charged": "textures/entity/creeper/creeper_armor"
+			},
+			"geometry": {
+				"default": "geometry.creeper.v1.8",
+				"charged": "geometry.creeper.charged.v1.8"
+			},
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 6
+			},
+			"animations": {
+				"creeper_head": "animation.common.look_at_target",
+				"walk": "animation.creeper.walk",
+				"blink": "animation.creeper.blink",
+				"death": "animation.creeper.death",
+				"idle": "animation.creeper.idle",
+				"creeper_swelling": "animation.creeper.swelling",
+				"general": "controller.animation.creeper.general",
+				"swelling_controller": "controller.animation.creeper.swelling"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.wobble = Math.sin(query.swell_amount * 5730) * query.swell_amount * 0.01 + 1.0;",
+					"variable.swelling_scale1 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.4 + 1.0) * variable.wobble;",
+					"variable.swelling_scale2 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.1 + 1.0) / variable.wobble;",
+					"variable.flash = Math.mod(Math.Round(query.swell_amount * 10.0), 2.0);"
+				],
+				"animate": [
+					{
+						"death": "!query.is_alive"
+					},
+					{
+						"blink": "query.is_alive"
+					},
+					"swelling_controller",
+					"general",
+					"creeper_head"
+				]
+			},
+			"render_controllers": [
+				"controller.render.creeper",
+				"controller.render.creeper_armor"
+			]
+		}
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.chicken.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"flying": "!q.is_on_ground"},
+						{"running": "q.ground_speed > 4"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"flying": "!q.is_on_ground"},
+						{"running": "q.ground_speed > 4"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"walking": "q.ground_speed < 3"},
+						{"flying": "!q.ground_speed"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"flying": {
+					"animations": ["fly"],
+					"transitions": [
+						{"default": "q.is_on_ground && q.ground_speed < 0.3"},
+						{"walking": "q.is_on_ground && q.ground_speed > 0.3"},
+						{"running": "q.is_on_ground && q.ground_speed > 4"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.chicken.death": {
+			"states": {
+				"default": {
+					"animations": ["general", "look_at_target", "blink"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

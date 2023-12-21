@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:spider",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "spider",
+				"invisible": "spider_invisible"
+			},
+			"textures": {
+				"default": "textures/entity/spider/spider"
+			},
+			"geometry": {
+				"default": "geometry.spider.bma2"
+			},
+			"animations": {
+				"look_at_target": "animation.spider.look_at_target",
+				"look_at_target_upside_down": "animation.spider.look_at_target_upside_down",
+				"idle": "animation.spider.idle",
+				"walk": "animation.spider.walk",
+				"climb": "animation.spider.climb",
+				"attack": "animation.spider.attack",
+				"upside_down": "animation.spider.upside_down",
+				"death": "animation.spider.death",
+				"death_rot": "animation.spider.death_rot",
+				"death_rot_cave": "animation.spider.death_rot_cave",
+				"orientation_controller": "controller.animation.spider.orientation_controller",
+				"general": "controller.animation.spider.general",
+				"death_cont": "controller.animation.spider.death"
+			},
+			"scripts": {
+				"animate": [
+					"death_cont"
+				]
+			},
+			"render_controllers": [
+				"controller.render.spider"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 11
+			}
+		}
+	}
+}

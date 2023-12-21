@@ -1,0 +1,72 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.enderman.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						"walk",
+						{"arms_walk": "!q.is_carrying_block && !v.attack"}
+					],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.enderman.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attacking": "v.attack"}
+					],
+					"blend_transition": 0.2
+				},
+				"attacking": {
+					"animations": ["attack"],
+					"transitions": [
+						{"default": "!v.attack && q.any_animation_finished"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.enderman.death": {
+			"states": {
+				"default": {
+					"animations": [
+						{"carry": "q.is_carrying_block"},
+						{"angry": "q.is_angry"},
+						"look_at_target",
+						"blink",
+						"attack_cont",
+						"general"
+					],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

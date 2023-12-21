@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:squid",
+      "materials": { "default": "squid" },
+      "textures": {
+        "default": "textures/entity/squid"
+      },
+      "geometry": {
+        "default": "geometry.squid.bma2"
+      },
+      "animations": {
+        "swim": "animation.squid.swim",
+        "squid_rotate": "animation.squid.rotate"
+      },
+      "scripts": {
+        "animate": [
+          "swim"
+        ]
+      },
+      "render_controllers": [ "controller.render.squid" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 15
+      }
+    }
+  }
+}

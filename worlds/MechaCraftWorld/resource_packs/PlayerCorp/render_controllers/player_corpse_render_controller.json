@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.player_corpse": {
+      "arrays": {
+        "geometries": {
+          "array.geos": [
+            "geometry.player_corpse"
+          ]
+        },
+        "textures": {
+          "array.skins": [
+            "Texture.default",
+            "Texture.decay_stage_1",
+            "Texture.decay_stage_2",
+            "Texture.decay_stage_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.player_corpse",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.skins[query.variant]" ]
+    }
+  }
+}

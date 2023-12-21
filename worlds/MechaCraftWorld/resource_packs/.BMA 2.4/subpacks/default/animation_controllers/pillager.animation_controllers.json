@@ -1,0 +1,78 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.pillager.general": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "query.ground_speed>0.5"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						{
+							"walk": "!query.is_riding&&query.modified_move_speed*2"
+						},
+						{
+							"walk_not_charged": "variable.attack_state==0&&query.modified_move_speed*2"
+						},
+						{
+							"riding.legs": "query.is_riding"
+						}
+					],
+					"transitions": [
+						{
+							"default": "query.ground_speed<0.5"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.pillager.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"charge_holding": "variable.attack_state==1"
+						},
+						{
+							"charging": "variable.attack_state==2"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"charging": {
+					"animations": [
+						"charge"
+					],
+					"transitions": [
+						{
+							"charge_holding": "variable.attack_state==1"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"charge_holding": {
+					"animations": [
+						"charge_hold"
+					],
+					"transitions": [
+						{
+							"default": "variable.attack_state==0"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

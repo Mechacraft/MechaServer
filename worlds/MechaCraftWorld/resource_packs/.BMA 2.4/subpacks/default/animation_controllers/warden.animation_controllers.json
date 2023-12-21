@@ -1,0 +1,206 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.warden.general": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						{
+							"idle": "!(query.is_emerging&&query.is_digging)"
+						}
+					],
+					"transitions": [
+						{
+							"emerging_digging": "query.is_emerging||query.is_digging"
+						},
+						{
+							"walking": "query.ground_speed>0.2&&query.ground_speed<1"
+						},
+						{
+							"jogging": "query.ground_speed>1.5&&query.ground_speed<2"
+						},
+						{
+							"running": "query.ground_speed>3"
+						},
+						{
+							"sniffing": "query.is_sniffing"
+						},
+						{
+							"roaring": "query.is_roaring"
+						},
+						{
+							"sonic_boom": "query.is_sonic_boom"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "query.ground_speed<0.2"
+						},
+						{
+							"jogging": "query.ground_speed>1.5&&query.ground_speed<2"
+						},
+						{
+							"running": "query.ground_speed>3"
+						},
+						{
+							"roaring": "query.is_roaring"
+						},
+						{
+							"sonic_boom": "query.is_sonic_boom"
+						},
+						{
+							"running": "query.ground_speed>3"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"jogging": {
+					"animations": [
+						"jog"
+					],
+					"transitions": [
+						{
+							"walking": "query.ground_speed<1&&query.ground_speed>0.2"
+						},
+						{
+							"sniffing": "query.is_sniffing"
+						},
+						{
+							"roaring": "query.is_roaring"
+						},
+						{
+							"sonic_boom": "query.is_sonic_boom"
+						},
+						{
+							"running": "query.ground_speed>3"
+						},
+						{
+							"idle": "query.ground_speed<0.2"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"sniffing": {
+					"animations": [
+						"sniffing"
+					],
+					"transitions": [
+						{
+							"idle": "!query.is_sniffing"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"roaring": {
+					"animations": [
+						"roaring"
+					],
+					"transitions": [
+						{
+							"idle": "!query.is_roaring"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"sonic_boom": {
+					"animations": [
+						"sonic_boom_attack"
+					],
+					"transitions": [
+						{
+							"idle": "!query.is_sonic_boom"
+						}
+					]
+				},
+				"emerging_digging": {
+					"animations": [
+						{
+							"emerge": "query.is_emerging"
+						},
+						{
+							"dig": "query.is_digging"
+						}
+					],
+					"transitions": [
+						{
+							"idle": "(!query.is_emerging&&!query.is_digging)&&query.ground_speed<0.2"
+						}
+					],
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": [
+						"run"
+					],
+					"transitions": [
+						{
+							"idle": "query.ground_speed<1"
+						},
+						{
+							"sonic_boom": "query.is_sonic_boom"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.warden.shiver": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"shiver": "variable.tendril_animation>0"
+						}
+					]
+				},
+				"shiver": {
+					"animations": [
+						"shiver"
+					],
+					"transitions": [
+						{
+							"default": "variable.tendril_animation<=0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.warden.melee_attacking": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "variable.attack_time>0"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"melee_attack"
+					],
+					"transitions": [
+						{
+							"default": "variable.attack_time<=0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

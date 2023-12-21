@@ -1,0 +1,51 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:ravager",
+			"materials": {
+				"default": "ravager"
+			},
+			"textures": {
+				"default": "textures/entity/illager/ravager"
+			},
+			"geometry": {
+				"default": "geometry.ravager"
+			},
+			"animations": {
+				"idle": "animation.ravager.idle",
+				"walk": "animation.ravager.walk",
+				"look_at_target": "animation.common.look_at_target",
+				"blink": "animation.ravager.blink",
+				"idle_mouth": "animation.ravager.idle_mouth",
+				"stunned": "animation.ravager.stunned",
+				"roar": "animation.ravager.roar",
+				"bite": "animation.ravager.bite",
+				"general": "controller.animation.ravager.general",
+				"attack": "controller.animation.ravager.attack"
+			},
+			"scripts": {
+				"animate": [
+					"general",
+					"attack",
+					{
+						"look_at_target": "query.is_alive"
+					},
+					{
+						"blink": "query.is_alive"
+					}
+				]
+			},
+			"particle_effects": {
+				"stun_particles": "minecraft:stunned_emitter"
+			},
+			"render_controllers": [
+				"controller.render.ravager"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 57
+			}
+		}
+	}
+}

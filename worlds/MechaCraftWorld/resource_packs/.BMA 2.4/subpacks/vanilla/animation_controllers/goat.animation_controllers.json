@@ -1,0 +1,80 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.goat.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"running": "q.ground_speed > 4"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"running": "q.ground_speed > 4"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3"},
+						{"walking": "q.ground_speed < 3"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.goat.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attacking": "q.is_ram_attacking"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"attacking": {
+					"animations": ["ram_attack"],
+					"transitions": [
+						{"default": "!q.is_ram_attacking && q.any_animation_finished\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.goat.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general", "attack"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": [
+						{"death1": "v.death == 0"},
+						{"death2": "v.death == 1"},
+						"death_rot"
+					],
+					"on_entry": ["v.death = math.random_integer(0, 1);"],
+					"transitions": [
+						{"default": "q.is_alive\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

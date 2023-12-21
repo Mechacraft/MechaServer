@@ -1,0 +1,16 @@
+{
+    "resource_pack_name": "vanilla",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "decayed_bone":{
+            "textures":[
+                "textures/items/decayed_bone"
+            ]
+        },
+        "bone_dust":{
+            "textures":[
+                "textures/items/bone_dust"
+            ]
+        }
+    }
+}

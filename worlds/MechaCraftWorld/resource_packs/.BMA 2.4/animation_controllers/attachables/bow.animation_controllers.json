@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.bow": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "drawing": "q.has_target && q.facing_target_to_range_attack && q.is_alive"
+            }
+          ]
+        },
+        "drawing": {
+          "animations": ["draw"],
+          "transitions": [
+            {
+              "default": "(!q.has_target && !q.facing_target_to_range_attack) || (!q.ground_speed && q.any_animation_finished)"
+            }
+          ],
+          "on_exit": ["v.frame = 0;"]
+        }
+      }
+    }
+  }
+}

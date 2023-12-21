@@ -1,0 +1,138 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.fox.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"running": "q.ground_speed > 4.8 || (q.ground_speed > 0.3 && q.has_target && !q.is_stalking)"},
+						{"sleeping": "q.is_sleeping"},
+						{"sitting": "q.is_sitting"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "!q.ground_speed > 0.3\n"},
+						{"running": "q.ground_speed > 4.8 || (q.ground_speed > 0.3 && q.has_target && !q.is_stalking)"},
+						{"sleeping": "q.is_sleeping"},
+						{"sitting": "q.is_sitting"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3 && !q.has_target"},
+						{"walking": "(q.ground_speed < 3 && !q.has_target) || q.is_stalking"},
+						{"sleeping": "q.is_sleeping"},
+						{"sitting": "q.is_sitting"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"sitting": {
+					"animations": ["sit"],
+					"transitions": [
+						{"default": "!q.is_sitting && q.ground_speed < 0.3"},
+						{"walking": "!q.is_sitting && q.ground_speed > 0.3"},
+						{"sleeping": "!q.is_sitting && q.is_sleeping"},
+						{"running": "!q.is_sitting && q.ground_speed > 4.8"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"sleeping": {
+					"animations": ["sleep"],
+					"transitions": [
+						{"default": "!q.is_sleeping"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.fox.attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"crouching": "q.is_stalking"},
+						{"wiggling": "q.is_interested"},
+						{"attacking": "v.attack"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"crouching": {
+					"animations": ["crouch"],
+					"transitions": [
+						{"default": "!q.is_stalking"},
+						{"wiggling": "q.is_interested\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"wiggling": {
+					"animations": ["wiggle"],
+					"transitions": [
+						{"default": "!q.is_interested"},
+						{"crouching": "!q.is_interested && q.is_stalking"},
+						{"pouncing": "!q.is_on_ground"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"pouncing": {
+					"animations": ["pounce"],
+					"transitions": [
+						{"default": "q.is_on_ground && !q.is_stunned"},
+						{"stuck": "q.is_stunned"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"stuck": {
+					"animations": ["stuck"],
+					"transitions": [
+						{"default": "!q.is_stunned"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"attacking": {
+					"animations": ["attack"],
+					"transitions": [
+						{"default": "!v.attack && q.all_animations_finished\n"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.fox.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general", "attack_cont"],
+					"transitions": [
+						{"active": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"active": {
+					"animations": ["death_rot", "death"],
+					"transitions": [
+						{"default": "q.is_alive\n"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.evoker.general": {
+			"states": {
+				"default": {
+					"animations": ["idle"],
+					"transitions": [
+						{"walking": "q.ground_speed > 0.3"},
+						{"casting": "q.is_casting"},
+						{"celebrating": "q.is_celebrating"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"walking": {
+					"animations": ["walk"],
+					"transitions": [
+						{"default": "q.ground_speed < 0.3\n"},
+						{"casting": "q.is_casting"},
+						{"celebrating": "q.is_celebrating"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"casting": {
+					"animations": ["cast"],
+					"transitions": [
+						{"default": "!q.is_casting && q.ground_speed < 0.3"},
+						{"walking": "!q.is_casting && q.ground_speed > 0.3"},
+						{"celebrating": "q.is_celebrating"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"celebrating": {
+					"animations": ["celebrate"],
+					"transitions": [
+						{"default": "!q.is_celebrating && q.ground_speed < 0.3"},
+						{"walking": "!q.is_celebrating && q.ground_speed > 0.3"},
+						{"casting": "!q.is_celebrating && q.is_casting"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.evoker.death": {
+			"states": {
+				"default": {
+					"animations": ["look_at_target", "blink", "general"],
+					"transitions": [
+						{"dead": "!q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"dead": {
+					"animations": ["death", "death_rot"],
+					"transitions": [
+						{"default": "q.is_alive"}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

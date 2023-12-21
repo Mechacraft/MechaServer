@@ -1,0 +1,48 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:iron_golem",
+			"materials": {
+				"default": "iron_golem"
+			},
+			"textures": {
+				"default": "textures/entity/iron_golem/iron_golem",
+				"cracked_high": "textures/entity/iron_golem/cracked_high",
+				"cracked_med": "textures/entity/iron_golem/cracked_medium",
+				"cracked_low": "textures/entity/iron_golem/cracked_low",
+				"cracked_none": "textures/entity/iron_golem/cracked_none"
+			},
+			"geometry": {
+				"default": "geometry.iron_golem.bma2"
+			},
+			"animations": {
+				"idle": "animation.irongolem.idle",
+				"walk": "animation.irongolem.walk",
+				"has_target": "animation.irongolem.has_target",
+				"attack": "animation.irongolem.attack",
+				"flower": "animation.irongolem.flower",
+				"death_rot": "animation.irongolem.death_rot",
+				"death1": "animation.irongolem.death1",
+				"death2": "animation.irongolem.death2",
+				"look_at_target": "animation.common.look_at_target",
+				"death_controller": "controller.animation.iron_golem.death_controller",
+				"general": "controller.animation.iron_golem.general"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.modified_tcos0 = Math.clamp(((Math.cos(query.modified_distance_moved * 13.5) * Math.min(query.modified_move_speed, 0.6) / variable.gliding_speed_value) * 25.0), -12.5, 12.5);",
+					"variable.attack_time = math.sin(variable.attack_time * 25);"
+				],
+				"animate": [
+					"general",
+					"death_controller"
+				]
+			},
+			"render_controllers": [
+				"controller.render.iron_golem",
+				"controller.render.iron_golem_cracks"
+			]
+		}
+	}
+}

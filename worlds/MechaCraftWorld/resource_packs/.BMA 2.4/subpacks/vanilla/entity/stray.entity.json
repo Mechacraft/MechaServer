@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:stray",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "stray",
+        "overlay": "stray_clothes"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/stray",
+        "overlay": "textures/entity/skeleton/stray_overlay"
+      },
+      "geometry": {
+        "default": "geometry.skeleton.stray.bma2",
+        "overlay": "geometry.stray.armor.bma2"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.skeleton.idle",
+        "arms_idle": "animation.skeleton.arms_idle",
+        "walk": "animation.skeleton.walk",
+        "arms_walk": "animation.skeleton.arms_walk",
+        "draw": "animation.skeleton.draw",
+        "skeleton_attack": "animation.skeleton.attack",
+        "death_rot": "animation.skeleton.death_rot",
+        "death": "animation.skeleton.death",
+        "shoot": "controller.animation.skeleton.shoot",
+        "attack": "controller.animation.skeleton.attack",
+        "general": "controller.animation.skeleton.general",
+        "death_controller": "controller.animation.skeleton.death"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "general": "q.is_alive"
+          },
+          "shoot",
+          "attack",
+          "death_controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.stray_clothes",
+        "controller.render.stray"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 27
+      },
+      "enable_attachables": true
+    }
+  }
+}
